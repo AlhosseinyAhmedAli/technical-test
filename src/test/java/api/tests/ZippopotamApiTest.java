@@ -11,25 +11,10 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.hamcrest.Matchers.*;
 import static org.testng.Assert.*;
 
-/**
- * Test cases for: GET /{country}/{postal-code}  e.g. https://api.zippopotam.us/us/90210
- *
- * Endpoint under test is a simple read-only lookup, so the suite focuses on:
- *  1. Happy path contract (status, headers, schema, field-level correctness)
- *  2. Input validation / error handling (bad postal code, bad country, malformed input)
- *  3. Edge cases specific to this data set (multi-place zip codes, leading zeros, case sensitivity)
- *  4. Non-functional sanity checks (response time)
- *
- * Each test is independent and asserts a single concern, so a failure immediately
- * tells you what broke instead of requiring you to read through Response bodies.
- */
+
 public class ZippopotamApiTest extends BaseApiTest {
 
     private static final String ENDPOINT = "/{country}/{postalCode}";
-
-    // ---------------------------------------------------------------------
-    // 1. Happy path
-    // ---------------------------------------------------------------------
 
     @Test(description = "A known country + postal code combination returns 200 with the correct content type")
     public void validRequest_returnsOkWithJsonContentType() {
@@ -94,9 +79,7 @@ public class ZippopotamApiTest extends BaseApiTest {
         assertTrue(lon >= -180 && lon <= 180, "longitude out of range: " + lon);
     }
 
-    // ---------------------------------------------------------------------
-    // 2. Data-driven happy path across multiple countries
-    // ---------------------------------------------------------------------
+    
 
     @DataProvider(name = "validCountryPostalCodes")
     public Object[][] validCountryPostalCodes() {
@@ -127,9 +110,6 @@ public class ZippopotamApiTest extends BaseApiTest {
         assertTrue(actualPlace != null && !actualPlace.isEmpty(), "place name should not be empty");
     }
 
-    // ---------------------------------------------------------------------
-    // 3. Error handling / input validation
-    // ---------------------------------------------------------------------
 
     @Test(description = "A well-formed but non-existent postal code returns 404")
     public void nonExistentPostalCode_returns404() {
@@ -183,9 +163,7 @@ public class ZippopotamApiTest extends BaseApiTest {
             .statusCode(not(200));
     }
 
-    // ---------------------------------------------------------------------
-    // 4. Edge cases specific to this data set
-    // ---------------------------------------------------------------------
+-
 
     @Test(description = "A postal code with a leading zero is preserved and resolved correctly (not treated as a number)")
     public void postalCodeWithLeadingZero_isResolvedCorrectly() {
@@ -233,9 +211,7 @@ public class ZippopotamApiTest extends BaseApiTest {
             .body("places.every { it.longitude != null }", is(true));
     }
 
-    // ---------------------------------------------------------------------
-    // 5. Non-functional
-    // ---------------------------------------------------------------------
+  
 
     @Test(description = "The endpoint responds within an acceptable time budget")
     public void response_isReturnedWithinAcceptableTime() {
