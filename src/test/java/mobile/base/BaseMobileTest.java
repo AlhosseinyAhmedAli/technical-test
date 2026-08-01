@@ -5,13 +5,7 @@ import mobile.utils.DriverFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-/**
- * Handles driver setup/teardown so individual test classes only contain
- * scenario logic, not session-management boilerplate.
- *
- * A fresh driver session per test method keeps tests independent of one
- * another (no shared app state leaking between scenarios).
- */
+
 public abstract class BaseMobileTest {
 
     protected AndroidDriver driver;
