@@ -2,9 +2,6 @@ package api.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * Represents a single entry in the "places" array of a zippopotam.us response.
- */
 public class Place {
 
     @JsonProperty("place name")
