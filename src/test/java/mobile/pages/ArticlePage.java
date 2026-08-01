@@ -9,10 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-/**
- * Represents an open article page: the save/bookmark action and the
- * "add to reading list" dialog that follows it.
- */
+
 public class ArticlePage {
 
     private final AndroidDriver driver;
@@ -36,29 +33,18 @@ public class ArticlePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(articleTitle)).getText();
     }
 
-    /**
-     * Taps the save/bookmark icon in the article toolbar. On first save this
-     * adds the article to the default reading list and surfaces a snackbar
-     * with an action to change/add lists.
-     */
+  
     public ArticlePage saveArticle() {
         wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
         return this;
     }
 
-    /**
-     * From the "Added to reading lists" snackbar, opens the list picker so a
-     * different/new list can be chosen for the article.
-     */
+ 
     public ArticlePage openAddToReadingListDialog() {
         wait.until(ExpectedConditions.elementToBeClickable(addToListSnackbarAction)).click();
         return this;
     }
 
-    /**
-     * Creates a brand-new reading list with the given name and confirms the
-     * article should be saved into it.
-     */
     public ArticlePage createNewReadingList(String listName) {
         wait.until(ExpectedConditions.elementToBeClickable(createNewListOption)).click();
 
