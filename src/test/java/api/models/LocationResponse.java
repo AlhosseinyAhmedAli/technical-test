@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-/**
- * Maps the top-level JSON response returned by
- * GET https://api.zippopotam.us/{country}/{postal-code}
- */
+
 public class LocationResponse {
 
     @JsonProperty("post code")
