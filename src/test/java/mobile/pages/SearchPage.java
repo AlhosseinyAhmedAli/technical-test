@@ -10,15 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-/**
- * Represents the app's home screen search entry point and the search results list.
- *
- * NOTE ON LOCATORS: resource-ids below match the current public build of the
- * Wikipedia Android app (org.wikipedia) at the time of writing. App UI ids can
- * change between releases -- if a locator here breaks, re-capture it with
- * Appium Inspector / uiautomatorviewer against the installed build and update
- * this class only; no other class needs to change (that's the point of POM).
- */
+
 public class SearchPage {
 
     private final AndroidDriver driver;
@@ -46,9 +38,7 @@ public class SearchPage {
         return this;
     }
 
-    /**
-     * Opens the search result whose title exactly matches {@code articleTitle}.
-     */
+   
     public ArticlePage openResult(String articleTitle) {
         List<WebElement> results = wait.until(
                 ExpectedConditions.presenceOfAllElementsLocatedBy(
