@@ -10,11 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-/**
- * Represents the "Reading lists" tab: the list of reading lists, the search
- * within it, an individual opened list, and verification that a given
- * article is present in it.
- */
 public class ReadingListsPage {
 
     private final AndroidDriver driver;
@@ -56,9 +51,6 @@ public class ReadingListsPage {
         return this;
     }
 
-    /**
-     * @return true if an article with the given title is present in the currently open list.
-     */
     public boolean isArticlePresent(String articleTitle) {
         List<WebElement> articles = wait.until(
                 ExpectedConditions.presenceOfAllElementsLocatedBy(articleEntriesInsideList));
