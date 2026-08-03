@@ -1,8 +1,0 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="API Test Suite" verbose="1">
-    <test name="Zippopotam API Tests">
-        <classes>
-            <class name="api.tests.ZippopotamApiTest"/>
-        </classes>
-    </test>
-</suite>
