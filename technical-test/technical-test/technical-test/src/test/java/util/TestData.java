@@ -6,15 +6,6 @@ import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Small helper for reading per-suite defaults out of {@code <section>/data.properties}
- * on the test classpath (e.g. {@code api/data.properties}, {@code mobile/data.properties}).
- *
- * <p>Values are cached per section after the first load. If the section's properties
- * file can't be found (or doesn't define the requested key), {@link #get} falls back
- * to the supplied default rather than throwing, so tests keep working even without a
- * properties file present.</p>
- */
 public final class TestData {
 
     private static final ConcurrentMap<String, Properties> CACHE = new ConcurrentHashMap<>();
