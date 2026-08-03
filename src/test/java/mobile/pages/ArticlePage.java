@@ -17,7 +17,6 @@ public class ArticlePage {
 
     private final By articleTitle = AppiumBy.id("org.wikipedia:id/view_page_title_text");
     private final By saveButton = AppiumBy.id("org.wikipedia:id/page_save");
-    // Snackbar/dialog shown immediately after the first save, offering to change the target list.
     private final By addToListSnackbarAction = AppiumBy.id("org.wikipedia:id/snackbar_action");
     private final By createNewListOption = AppiumBy.xpath(
             "//*[contains(@text,'Create new reading list') or contains(@text,'New list')]");
