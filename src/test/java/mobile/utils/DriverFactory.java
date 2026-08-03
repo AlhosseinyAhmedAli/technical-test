@@ -31,7 +31,6 @@ public final class DriverFactory {
             options.setApp(appPath);
             options.setNoReset(false);
         } else {
-            // App is assumed to be already installed on the device/emulator.
             options.setAppPackage(appPackage);
             options.setAppActivity(appActivity);
         }
