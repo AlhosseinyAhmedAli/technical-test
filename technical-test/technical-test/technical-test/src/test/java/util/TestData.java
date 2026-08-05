@@ -27,7 +27,7 @@ public final class TestData {
                 properties.load(in);
             }
         } catch (IOException e) {
-            // Fall through with an empty Properties instance; callers supply defaults.
+            
         }
         return properties;
     }
